@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import mlflow
 import mlflow.sklearn
@@ -40,8 +41,20 @@ with mlflow.start_run():
 
     print("Accuracy:", acc)
 
+    # log parameter
     mlflow.log_param("n_estimators", 100)
     mlflow.log_param("random_state", 42)
+
+    # log metric
     mlflow.log_metric("accuracy", acc)
 
+    # log model ke MLflow (tracking)
     mlflow.sklearn.log_model(model, "model")
+
+    # ======================
+    # SAVE MODEL LOKAL
+    # ======================
+    local_model_dir = "model"
+    mlflow.sklearn.save_model(model, local_model_dir)
+
+print("Training selesai + model tersimpan.")
