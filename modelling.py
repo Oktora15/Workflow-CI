@@ -1,4 +1,5 @@
 import os
+import shutil
 import pandas as pd
 import mlflow
 import mlflow.sklearn
@@ -29,6 +30,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # ======================
 with mlflow.start_run():
 
+    # MODEL
     model = RandomForestClassifier(
         n_estimators=100,
         random_state=42
@@ -41,20 +43,32 @@ with mlflow.start_run():
 
     print("Accuracy:", acc)
 
-    # log parameter
+    # ======================
+    # LOG PARAMETER
+    # ======================
     mlflow.log_param("n_estimators", 100)
     mlflow.log_param("random_state", 42)
 
-    # log metric
+    # ======================
+    # LOG METRIC
+    # ======================
     mlflow.log_metric("accuracy", acc)
 
-    # log model ke MLflow (tracking)
+    # ======================
+    # LOG MODEL (MLFLOW TRACKING)
+    # ======================
     mlflow.sklearn.log_model(model, "model")
 
     # ======================
-    # SAVE MODEL LOKAL
+    # SAVE MODEL LOKAL (UNTUK INFERENCE)
     # ======================
     local_model_dir = "model"
+
+    # HAPUS FOLDER LAMA JIKA ADA
+    if os.path.exists(local_model_dir):
+        shutil.rmtree(local_model_dir)
+
+    # SIMPAN MODEL BARU
     mlflow.sklearn.save_model(model, local_model_dir)
 
-print("Training selesai + model tersimpan.")
+print("Training selesai + model berhasil disimpan.")

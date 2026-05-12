@@ -1,0 +1,23 @@
+artifact_path: file:D:/Pijak Dicoding/Workflow-CI/mlruns/1/models/m-8ffa83d137ad4dcdaf5b4bf9f37ec175/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.13
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.12.0
+model_id: m-8ffa83d137ad4dcdaf5b4bf9f37ec175
+model_size_bytes: 1221329
+model_uuid: m-8ffa83d137ad4dcdaf5b4bf9f37ec175
+prompts: null
+run_id: 6b541848d26c41b186c8d09b053283a7
+utc_time_created: '2026-05-12 11:06:36.378961'
