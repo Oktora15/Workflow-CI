@@ -34,8 +34,8 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKER_Oktora15 }}
-        password: ${{ secrets.DOCKER_gnJXwY@u@QJi2@V }}
+        username: ${{ secrets.Oktora15 }}
+        password: ${{ secrets.gnJXwY@u@QJi2@V }}
 
     - name: Build Docker Image
       run: |
@@ -43,8 +43,8 @@ jobs:
 
     - name: Tag Docker Image
       run: |
-        docker tag heart-disease-mlops ${{ secrets.DOCKER_Oktora15 }}/heart-disease-mlops:latest
+        docker tag heart-disease-mlops ${{ secrets.Oktora15 }}/heart-disease-mlops:latest
 
     - name: Push Docker Image
       run: |
-        docker push ${{ secrets.DOCKER_Oktora15 }}/heart-disease-mlops:latest
+        docker push ${{ secrets.Oktora15 }}/heart-disease-mlops:latest
