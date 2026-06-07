@@ -25,7 +25,7 @@ jobs:
 
     - name: Run Training
       run: |
-        python modelling.py
+        mlflow run MLProject
 
     # =========================
     # DOCKER STAGE

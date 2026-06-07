@@ -11,7 +11,7 @@ from sklearn.metrics import accuracy_score
 # ======================
 # SET EXPERIMENT
 # ======================
-mlflow.set_experiment("Heart_Disease_Experiment")
+#mlflow.set_experiment("Heart_Disease_Experiment")
 
 # ======================
 # LOAD DATA
