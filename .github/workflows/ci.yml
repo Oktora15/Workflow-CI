@@ -20,7 +20,7 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r MLProject/requirements.txt
         pip install mlflow
 
     - name: Run Training
@@ -39,7 +39,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        mlflow models build-docker -m model -n heart-disease-mlops
+        mlflow models build-docker -m MLProject/model -n heart-disease-mlops
 
     - name: Tag Docker Image
       run: |
